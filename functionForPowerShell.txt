@@ -1,0 +1,10 @@
+function Create-RProject {
+    param (
+        [string]$projectName,
+        [string]$directoryPath = (Get-Location).Path  # Default to current directory
+    )
+    $templatePath = "C:\templates\template.Rproj"  # Change this to where your template is stored
+    $newProjectPath = Join-Path -Path $directoryPath -ChildPath "$projectName.Rproj"
+    Copy-Item -Path $templatePath -Destination $newProjectPath
+    Write-Host "Project $projectName created at $directoryPath"
+}
