@@ -2,9 +2,13 @@
 
 This tutorial provides step-by-step instructions on how to create custom R project files (`*.Rproj`) using PowerShell and how to troubleshoot common issues that might arise when trying to open these files in RStudio.
 
+By the end of this tutorial, you should be able to type `Create-RProject -projectName "MyNewProject"` into the terminal and voila. A new project created there and then
+
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Create a Template for your `.Rproj`](#create-a-template-for-your-rproj)
+- [Add Rstudio Path to the System Environment Variable](#add-rstudio-path-to-the-system-environment-variable)
 - [Creating a Custom `.Rproj` File](#creating-a-custom-rproj-file)
 - [Troubleshooting Common Issues](#troubleshooting-common-issues)
 - [Skills Learned](#skills-learned)
@@ -38,6 +42,22 @@ Encoding: UTF-8
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
 ```
+## Add Rstudio Path to the System Environment Variable
+To allow your shell to understand what Rstudio even is. You'll need to add a path to the program file in your system settings. This can be done in PowerShell, but can be a bit hectic, so let's do it the old fashioned way.
+### Step 1: Locate the RStudio Executable
+- Navigate to the directory where RStudio is installed, which is often `C:\Program Files\RStudio` or `C:\Program Files (x86)\RStudio`.
+- Look for `rstudio.exe` in this directory. This is likely on the Rstudio directory but could also be in a `bin` directory.
+- Click on the file and press `Ctrl+Shift+C` to copy the path.
+
+### Step 2: Add the path to System Environment Variable Via System Properties:
+- Open the Start Search, type System Properties and select “Edit the system environment variables” or "Advanced system settings".
+- In the System Properties window, click on the “Environment Variables” button.
+- In the Environment Variables window, scroll down in the “System variables” section and select the PatH variable, then click on “Edit…”.
+- In the Edit Environment Variable window, click “New” and paste the path to your RStudio’s directory, e.g., `C:\Program Files\RStudio`.
+- Click OK on all dialogs to close them and apply your changes.
+
+### Step 3: Verify the Path Addition
+Open a new PowerShell window (after closing any existing ones) and type `rstudio` to see if it launches RStudio. This will confirm that the path has been correctly added and recognized.
 
 ## Creating a Custom `.Rproj` File
 
@@ -80,6 +100,15 @@ The above example assumes you want to create the project within the directory of
 ```powerShell
 Create-RProject -projectName "MyNewProject" -directoryPath "C:\MyProjects"
 ```
+### Setup the Environment Path
+
+### Step 3: Open the project from the terminal
+Just type:
+```powerShell
+rstudio dataLocator.Rproj
+```
+Or whatever your project is called.
+
 ## Troubleshooting Common Issues
 
 ### Execution Policy
@@ -96,8 +125,9 @@ For PowerShell to run scripts, it is neccesary to allow this. Don't worry, this 
    ```
 ## Skills Learned
 - **PowerShell Scripting**
+- **System Environment Variables**
 - **The anatomy of a `.Rproj`**
-- **Execution Policy**
+- **PowerShell Execution Policy**
 
    
 
