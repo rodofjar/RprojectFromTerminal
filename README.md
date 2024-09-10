@@ -1,8 +1,8 @@
 # Creating and Troubleshooting Custom R Project Files from the Terminal
 
-This tutorial provides step-by-step instructions on how to create custom R project files (`*.Rproj`) using PowerShell and how to troubleshoot common issues that might arise when trying to open these files in RStudio.
+This tutorial provides step-by-step instructions on how to create custom R project files (`*.Rproj`) using PowerShell and how to troubleshoot common issues that might arise when trying to open these files from the commandline.
 
-By the end of this tutorial, you should be able to type `Create-RProject -projectName "MyNewProject"` into the terminal and voila. A new project created there and then
+By the end of this tutorial, you should be able to type `Create-RProject -projectName "MyNewProject"` into the terminal and then voila A new project created there and then.
 
 
 ## Table of Contents
@@ -100,12 +100,11 @@ The above example assumes you want to create the project within the directory of
 ```powerShell
 Create-RProject -projectName "MyNewProject" -directoryPath "C:\MyProjects"
 ```
-### Setup the Environment Path
 
 ### Step 3: Open the project from the terminal
 Just type:
 ```powerShell
-rstudio dataLocator.Rproj
+rstudio MyNewProject.Rproj
 ```
 Or whatever your project is called.
 
