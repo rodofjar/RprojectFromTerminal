@@ -1,4 +1,4 @@
-# Creating and Troubleshooting Custom R Project Files
+# Creating and Troubleshooting Custom R Project Files from the Terminal
 
 This tutorial provides step-by-step instructions on how to create custom R project files (`*.Rproj`) using PowerShell and how to troubleshoot common issues that might arise when trying to open these files in RStudio.
 
